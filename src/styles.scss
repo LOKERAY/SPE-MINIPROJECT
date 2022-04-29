@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto",sans-serif;
+    background: #f7f6ff;
+}
+
+h2 {
+    margin : 16px;
+}
+.container {
+    margin-top: 100px;
+    padding: 32px;
+}
+
+.select-box {
+    display: flex;
+    width : 400px;
+    flex-direction: column;
+}
+.numberinput {
+   padding: 10px;
+    width: 100%;
+    order: 3;
+    flex-direction: column;
+}
+#input {
+    width:400px;
+    height : 35px;
+}
+#secondinput {
+    width:400px;
+    height :35px;
+}
+.numberinput .number1text {
+    padding: 10px;
+    order: 2;
+}
+.number2input {
+   margin-left: 30px;
+    padding: 10px;
+    width: 100%;
+    flex-direction: column;
+}
+
+.number2input .number2text {
+    padding: 10px;
+}
+
+.calculate_option {
+    margin-left: 180px;
+    margin-top: 30px;
+}
+.calculate_option button {
+    padding : 5px 10px;
+}
+.answer_viewer {
+    margin-top : 70px;
+    margin-left: 30px;
+}
+#answer_viewer {
+    width : 400px;
+    height :35px;
+}
+.select-box .option-container {
+    background: #2f3640;
+    color: #f5f6fa;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    overflow: hidden;
+    order: 1;
+}
+.selected {
+    background: #2f3640;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    color: #f5f6fa;
+    position: relative;
+    order: 0;
+}
+.selected::after {
+    content: "";
+    background: url("img/down-arrow.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    height: 120%;
+    width: 25px;
+    right: 10px;
+    top: 12px;
+    
+    transition: all 0.4s;
+}
+.select-box .option,
+.selected {
+    padding: 12px 24px;
+    cursor: pointer;
+}
+.select-box .option:hover {
+    background:#414b57;
+}
+
+.select-box label {
+    cursor: pointer;
+}
+
+.select-box .option .radio {
+    display: none;
+}
+
+.select-box .option-container.active {
+    max-height: 240px;
+    opacity: 1;
+    overflow-y: scroll;
+}
+.select-box .option-container.active + .selected::after {
+    transform: rotateX(180deg);
+    top: -20px;
+}
+.select-box .option-container::-webkit-scrollbar {
+    width: 8px;
+    background:#0d141f;
+    border-radius: 0 8px 8px 0;
+}
+.select-box .option-container::-webkit-scrollbar-thumb {
+    background: #525861;
+    border-radius: 0 8px 8px 0;
+}

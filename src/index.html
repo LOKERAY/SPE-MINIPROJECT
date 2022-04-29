@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SpeDemo</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <div class="container">
+      <h2>Scientific Calculator</h2>
+  
+  
+  
+
+  <div class="select-box">
+      
+      <div class="option-container">
+          
+          <div class="option" value="square root">
+              <input 
+              type="radio" 
+              value="square root"
+              class ="radio" 
+              id="square root" 
+              name="category"
+              >
+              <label for="square root">Square root</label>
+          
+          </div>
+          <div class="option" value = "factorial">
+              <input 
+              type="radio" 
+              
+              class ="radio" 
+              id="factorial" 
+              name="category"
+              >
+              <label for="factorial">factorial</label>
+          
+          </div>
+          <div class="option"value = "natural logarithm">
+              <input 
+              type="radio" 
+              
+              class ="radio" 
+              id="natural logarithm" 
+              name="category"
+              >
+              <label for="natural logarithm">Natural logarithm</label>
+          
+          </div>
+          <div class="option"value = "power">
+              <input 
+              type="radio" 
+              
+              class ="radio" 
+              id="power" 
+              name="category"
+              >
+              <label for="power">Power to b </label>
+          
+          </div>
+      </div>
+      <div id="operationINPUT" value="" class="selected">
+          Select the operation you wanted to perform
+      </div>
+  </div>
+  <div class="numberinput">
+      <div class="number1text">
+          Enter the Number
+      </div>
+      <label for="numberinput"></label>
+      <input type="text" id="input" name="inputnumberX">
+      
+  </div>
+  </div>
+  <div class="number2input">
+      <div class="number2text">
+          Enter the power number
+      </div>
+      <input type="text" id = "secondinput" name =" inputnumberB">
+  </div>
+  <div class="calculate_option">
+      <button onclick="myFunction()">Calculate</button>
+  </div>
+  <div class="answer_viewer">
+      <input type="text" id="answer_viewer"  name = " answer_displayer">
+  </div>
+<script src="main.js"></script>
+
+<script>
+  class calculator {
+    constructor(first_value,second_value,selected){
+      this.first_value=first_value;
+      this.second_value=second_value;
+      this.selected=selected;
+    }
+      compute() {
+        console.log("entered the function");
+          if(this.selected== "square root"){
+              document.getElementById("answer_viewer").value = Math.sqrt(this.first_value); 
+          }
+          else if(this.selected == "factorial"){
+            console.log("entered factorial function");
+            console.log(this.sFact(this.first_value))
+            document.getElementById("answer_viewer").value = this.sFact(this.first_value);  
+            
+          }
+          else if(this.selected == "natural logarithm"){
+            document.getElementById("answer_viewer").value = Math.log(this.first_value);  
+          }
+          else if(this.selected== "power"){
+            document.getElementById("answer_viewer").value = Math.pow(this.first_value,this.second_value); 
+            
+          }
+          else{
+            document.getElementById("answer_viewer").value ="input not reading" ; 
+          }
+
+      } 
+      sFact(number)
+  {
+    var rval=1;
+    for (var i = 2; i <= number; i++)
+        rval = rval * i;
+    return rval;
+  }
+
+    
+}
+
+const selected = document.querySelector(".selected");
+const optioncontainer = document.querySelector(".option-container");
+
+const optionsList = document.querySelectorAll(".option");
+
+selected.addEventListener("click",()=>{optioncontainer.classList.toggle("active")});
+
+optionsList.forEach( o => {
+    o.addEventListener("click",() => {selected.innerHTML = o.querySelector("label").innerHTML;
+    selected.value=o.getAttribute('value');
+    optioncontainer.classList.remove("active");
+    })
+})
+
+
+
+// Calculatebutton.addEventListener("click",()=>{)});
+
+function myFunction(){
+
+
+
+
+
+
+ console.log("Button is pressing");
+ const first_value = document.getElementById('input').value;
+const second_value = document.getElementById("secondinput").value;
+const selected =document.getElementById("operationINPUT").value;
+console.log(first_value);
+console.log(second_value);
+console.log(selected);
+const Calculator = new calculator(first_value,second_value,selected);
+  Calculator.compute();
+}
+</script>
+</body>
+
+</html>
