@@ -85,7 +85,7 @@ h2 {
 }
 .selected::after {
     content: "";
-    background: url("img/down-arrow.png");
+    // background: url("img/down-arrow.png");
     background-size: contain;
     background-repeat: no-repeat;
 
