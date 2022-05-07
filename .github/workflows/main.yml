@@ -39,6 +39,7 @@ jobs:
 
       - name: Image Digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+        
 
   
   deploy:
