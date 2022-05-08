@@ -56,7 +56,7 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            docker stop sminiproject  
-            docker rm -f MINIPROJECT
+            docker stop pminiproject  
+            docker rm -f pminiproject
             docker image rm -f  prathikmanchikalapudi/mini-project:latest
-            docker  run -d -p 8080:80 --name sminiproject prathikmanchikalapudi/mini-project:latest
+            docker  run -d -p 8080:80 --name pminiproject prathikmanchikalapudi/mini-project:latest
