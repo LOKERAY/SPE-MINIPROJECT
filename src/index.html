@@ -99,7 +99,6 @@
     }
       compute() {
         console.log("entered the function");
-        if(typeof this.first_value == 'number' && this.first_value > 0){ 
           if(this.selected== "square root"){
             
               document.getElementById("answer_viewer").value = Math.sqrt(this.first_value); 
@@ -123,10 +122,7 @@
             document.getElementById("answer_viewer").value ="input not reading" ; 
           }
         
-        }
-          else {
-              document.getElementById("answer_viewer").value = "incorrect input";
-            }
+        
 
       } 
       sFact(number)
